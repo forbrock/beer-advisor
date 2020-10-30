@@ -11,7 +11,7 @@ public class BeerExpert {
 			case "light":
 				brands.add("Allesgut");
 				brands.add("Kronenbourg 1664 Blanc");
-				brands.add("Черниговское Белое");
+				brands.add("Krusovice");
 				break;
 			case "dark":
 				brands.add("Braunwald");

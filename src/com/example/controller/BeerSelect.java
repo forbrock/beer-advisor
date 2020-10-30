@@ -14,19 +14,13 @@ public class BeerSelect extends HttpServlet {
 					HttpServletResponse response)
 					throws IOException, ServletException {
 		
-		response.setContentType("text/html; charset=UTF-8");
-		response.setCharacterEncoding("UTF-8");
 				
 		String color = request.getParameter("color");
 		BeerExpert be = new BeerExpert();
 		List result = be.getBrands(color);
 		
-		PrintWriter out = response.getWriter();
-		out.println("Beer selection advice:<br>");
-		
-		Iterator it = result.iterator();
-		while (it.hasNext()) {
-			out.print("<br>try: " + it.next());
-		}
+		request.setAttribute("styles", result);
+		RequestDispatcher view = request.getRequestDispatcher("result.jsp");
+		view.forward(request, response);
 	}
 }
